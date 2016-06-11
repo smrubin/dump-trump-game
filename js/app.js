@@ -689,7 +689,7 @@ cub.setOffset = function( offset, orientation ) {
 
 // ----- render ----- //
 
-cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered, img ) {
+cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered, img ) { //DTG: added extra param
   
   function circle( x, y, radius ) {
     ctx.beginPath();
@@ -713,9 +713,8 @@ cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered, img ) {
   ctx.scale( scale, scale );
 
 
-  // var img = new Image();
-  // img.src = './img/trump.jpg';
-  ctx.drawImage(img,-25,-25); // position at negative half values of image size (offsetting the image height and width to center it)
+
+  ctx.drawImage(img,-25,-25); // DTG: position at negative half values of image size (offsetting the image height and width to center it)
 
   // circle( 0, 0, gridSize * 0.6 );
   // circle( gridSize * -0.45, gridSize * -0.35, gridSize * 0.3 );
@@ -1156,6 +1155,7 @@ function strokeCircle( ctx, x, y, radius ) {
   ctx.closePath();
 }
 
+// Modified for DTG
 function renderGoal( ctx, x, y, mazeAngle, radiusA, radiusB ) {
   ctx.save();
   ctx.translate( x, y );
@@ -1271,14 +1271,14 @@ var docElem = document.documentElement;
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
 
-// Create Trump image
+// Create Trump image: DTG
 var img = new Image();
 img.src = './img/trump.jpg';
 
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
 var canvasWidth = canvas.width = window.innerWidth * 2;
-var canvasHeight = canvas.height = window.innerHeight * 2;
+var canvasHeight = canvas.height = window.innerHeight * 2 - 200; // DTG: added - 200 to account for top banner of 100px
 var maze;
 var PI = Math.PI;
 var TAU = PI * 2;
@@ -1402,7 +1402,7 @@ animate();
 // -------------------------- drag rotation -------------------------- //
 
 var canvasLeft = canvas.offsetLeft;
-var canvasTop = canvas.offsetTop;
+var canvasTop = canvas.offsetTop + 100; //DTG: added 100px offset from top for header
 
 var pointerBehavior;
 
@@ -1709,7 +1709,7 @@ function render() {
   }
   // cub
   var isHovered = isCubHovered || isCubDragging;
-  cub.render( ctx, mazeCenter, gridSize, maze.flyWheel.angle, isHovered, img );
+  cub.render( ctx, mazeCenter, gridSize, maze.flyWheel.angle, isHovered, img ); //DTG: added extra param
   ctx.restore();
 }
 

@@ -689,7 +689,8 @@ cub.setOffset = function( offset, orientation ) {
 
 // ----- render ----- //
 
-cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered ) {
+cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered, img ) {
+  
   function circle( x, y, radius ) {
     ctx.beginPath();
     ctx.arc( x, y, radius, 0, Math.PI * 2 );
@@ -699,17 +700,26 @@ cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered ) {
 
   var x = this.peg.x * gridSize + this.offset.x;
   var y = this.peg.y * gridSize + this.offset.y;
+
   ctx.save();
   ctx.translate( mazeCenter.x, mazeCenter.y );
   ctx.rotate( angle );
   ctx.translate( x, y );
   ctx.rotate( -angle );
-  ctx.fillStyle = 'hsla(330, 100%, 40%, 1)';
+
+  // ctx.fillStyle = 'hsla(330, 100%, 40%, 1)';
+
   var scale = isHovered ? 1.15 : 1;
   ctx.scale( scale, scale );
-  circle( 0, 0, gridSize * 0.6 );
-  circle( gridSize * -0.45, gridSize * -0.35, gridSize * 0.3 );
-  circle( gridSize * 0.45, gridSize * -0.35, gridSize * 0.3 );
+
+
+  // var img = new Image();
+  // img.src = './img/trump.jpg';
+  ctx.drawImage(img,-25,-25); // position at negative half values of image size (offsetting the image height and width to center it)
+
+  // circle( 0, 0, gridSize * 0.6 );
+  // circle( gridSize * -0.45, gridSize * -0.35, gridSize * 0.3 );
+  // circle( gridSize * 0.45, gridSize * -0.35, gridSize * 0.3 );
 
   ctx.restore();
 };
@@ -1260,6 +1270,11 @@ function renderStar( ctx ) {
 var docElem = document.documentElement;
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
+
+// Create Trump image
+var img = new Image();
+img.src = './img/trump.jpg';
+
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
 var canvasWidth = canvas.width = window.innerWidth * 2;
@@ -1694,7 +1709,7 @@ function render() {
   }
   // cub
   var isHovered = isCubHovered || isCubDragging;
-  cub.render( ctx, mazeCenter, gridSize, maze.flyWheel.angle, isHovered );
+  cub.render( ctx, mazeCenter, gridSize, maze.flyWheel.angle, isHovered, img );
   ctx.restore();
 }
 

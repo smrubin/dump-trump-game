@@ -13,7 +13,7 @@ body {
 header {
   text-align: center;
   height: 100px;
-  font-size: 48px;
+  font-size: 3vw;
 }
 
 main {
@@ -50,13 +50,42 @@ canvas {
   cursor: grabbing;
 }
 
-.instruction {
+/* --- instructions --- */
+
+.instructions-list {
+  position: absolute;
+  background: #EEE;
+  width: 100%;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  list-style: none;
+  padding: 10px;
+  z-index: 3; /* above canvas, level select button */
+  left: -100%;
+  transition: left 0.2s;
+}
+
+.instructions-list.is-open {
+  left: 0;
+}
+
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/*.instruction {
   padding: 0 10px;
   text-align: center;
   position: absolute;
   width: 100%;
   padding-bottom: 40px;
-}
+}*/
 
 .button {
   font-family: 'Avenir Next', Avenir, sans-serif;
@@ -76,9 +105,31 @@ canvas {
 }
 
 .top-bar {
-  position: absolute;
+/*  position: absolute;
   left: 0;
-  top: 0;
+  top: 0;*/
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar .button, .top-bar iframe {
+  position: relative;
+  z-index: 2;
+}
+
+/* social media buttons */
+.top-bar iframe {
+  margin: 10px 20px;
+  transform: scale(1.5);
+  -ms-transform: scale(1.5); 
+  -webkit-transform: scale(1.5); 
+  -o-transform: scale(1.5); 
+  -moz-transform: scale(1.5); 
+  transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
 }
 
 .level-select-button {

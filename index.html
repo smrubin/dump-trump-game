@@ -3,30 +3,65 @@
   <head>
     <meta charset="UTF-8">
 
-    <title>Dump Trump Game</title>
+    <title>The Dump Trump Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Facebook  -->
+    <meta property="og:url"           content="http://dumptrumpgame.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="The Dump Trump Game" />
+    <meta property="og:description"   content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!" />
+    <meta property="og:image"         content="http://dumptrumpgame.com/img/dumptrumpgamesnapshot.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="The Dump Trump Game">
+    <meta name="twitter:site" content="http://dumptrumpgame.com">
+    <meta name="twitter:title" content="Check out this Dump Trump Game!">
+    <meta name="twitter:description" content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!">
+    <meta name="twitter:image" content="http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg">
     
   </head>
 
   <body>
 
     <header>
-      Dump Trump - The Game
+      The Dump Trump Game
     </header>
 
     <main>
         
       <div class="top-bar">
         <button class="button level-select-button">Levels</button>
+        <button class="button instructions-button">Instructions</button>
+      <!-- </div> -->
+
+      <!-- <div class="top-bar"> -->
+
+        <!--  Facebook share button -->
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdumptrumpgame.com&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+        <!-- Twitter share button -->
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dumptrumpgame.com" data-hashtags="dumptrumpgame">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      
       </div>
 
       <ol class="level-list"></ol>
 
+      <ul class="instructions-list">
+        <i class="fa fa-times close-button" aria-hidden="true"></i>
+        <li>Drag Trump to the Dump!</li>
+        <li>Drag the grid to rotate. Trump and the Dump both move with the grid. Purple links stay in place.</li>
+        <li>Blue links move with the grid. Rotate the grid to connect blue and orange links in different ways.</li>
+        <li>Green links pivot with the grid, but point in the same direction.</li>
+        <li>Red links are fixed in place, but rotate with the grid.</li>
+      </ul>
+
       <div id="stage"><canvas></canvas></div>
 
-      <p class="instruction"></p>
+      <!-- <p class="instruction"></p> -->
       <button class="button next-level-button">Next level</button>
 
     </main>
@@ -35,7 +70,6 @@
 
 <pre id="intro-fixed1" data-blurb="Tutorial">
 blurb: Tutorial
-instruction: Drag Trump to the Dump!
 ---
 *=.=.
     !
@@ -46,7 +80,6 @@ instruction: Drag Trump to the Dump!
 
 <pre id="intro-fixed2" data-blurb="Tutorial">
 blurb: Tutorial
-instruction: Drag grid to rotate. Trump and Dump moves with grid. Orange links stay in place.
 ---
 * . .
     !
@@ -67,7 +100,6 @@ blurb: ★
 
 <pre id="intro-free1" data-blurb="Tutorial">
 blurb: Tutorial
-instruction: Blue links move with grid. Rotate grid to connect blue and orange links in different ways.
 ---
 @-. .
 !   | 
@@ -403,7 +435,6 @@ blurb: ★★
 </pre>
 
 <pre id="pivot-4x4-intro" data-blurb="Tutorial">
-instruction: Green links pivot with grid, but point in the same direction
 ---
 . .-* .
   |    
@@ -640,7 +671,6 @@ W !       |
 </pre>
 
 <pre id="rotate-tut" data-blurb="Tutorial">
-instruction: Red links are fixed in place, but rotate with grid
 ---
 . . . .
        

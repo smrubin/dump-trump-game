@@ -714,7 +714,7 @@ cub.render = function( ctx, mazeCenter, gridSize, angle, isHovered, img ) { //DT
 
 
 
-  ctx.drawImage(img,-25,-25); // DTG: position at negative half values of image size (offsetting the image height and width to center it)
+  ctx.drawImage(img,-23,-25); // DTG: position at negative half values of image size (offsetting the image height and width to center it)
 
   // circle( 0, 0, gridSize * 0.6 );
   // circle( gridSize * -0.45, gridSize * -0.35, gridSize * 0.3 );
@@ -748,8 +748,8 @@ proto.loadText = function( text ) {
     frontMatter = getFrontMatter( sections[0] );
   }
   // set instruction
-  var instructElem = document.querySelector('.instruction');
-  instructElem.innerHTML = frontMatter.instruction || '';
+  // var instructElem = document.querySelector('.instruction');
+  // instructElem.innerHTML = frontMatter.instruction || '';
 
   var mazeSrc = sections[ sections.length - 1 ];
   var lines = mazeSrc.split('\n');
@@ -1273,7 +1273,7 @@ var ctx = canvas.getContext('2d');
 
 // Create Trump image: DTG
 var img = new Image();
-img.src = './img/trump.jpg';
+img.src = './img/trump-cartoon.png';
 
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
@@ -1299,8 +1299,9 @@ var mazeCenter = {
 
 // ----- instruction ----- //
 
-var instructElem = document.querySelector('.instruction');
-instructElem.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
+// var instructElem = document.querySelector('.instruction');
+// instructElem.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
+var instructionsList = document.querySelector('.instructions-list');
 
 // ----- build level select, levels array ----- //
 
@@ -1327,7 +1328,33 @@ var levels = [];
 
   levelList.appendChild( fragment );
 
+  // Added close button for DTG
+  var closeButtonElement = document.createElement('i');
+  closeButtonElement.className = 'fa fa-times close-button';
+  levelList.appendChild( closeButtonElement );
+
 })();
+
+// ----- DTG: instructions button ----- //
+
+var instructionsButton = document.querySelector('.instructions-button');
+// var nextLevelButton = document.querySelector('.next-level-button');
+
+instructionsButton.addEventListener( 'click', function() {
+  instructionsList.classList.add('is-open');
+});
+
+// nextLevelButton.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
+
+// ----- close menu button ---- //
+var closeButton = document.querySelectorAll('.close-button');
+for (var i = 0; i < closeButton.length; i++) {
+  closeButton[i].addEventListener('click', function() {
+    this.parentElement.classList.remove('is-open');
+  });
+}
+
+
 
 // ----- levels button ----- //
 

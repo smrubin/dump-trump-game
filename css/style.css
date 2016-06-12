@@ -10,137 +10,51 @@ body {
   font-weight: 500;
   font-size: 20px;
   color: #555;
-  background-color: #ecf0f1; /* porcelain on flatui */
-}
-
-header {
-  text-align: center;
-  height: 100px;
-  font-size: 42px;
-  font-family: 'Fredoka One';
+  background-color: #ecf0f1;
 }
 
 @media only screen and (max-width : 768px) {
-  header {
-    font-size: 32px;
+  body {
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-width : 320px) {
-  header {
-    font-size: 24px;
+  body {
+    font-size: 12px;
   }
 }
 
-main {
-  position: relative;
-}
-
- @font-face {
-  font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.ttf');
-  font-weight: normal;
-  font-style: normal;
- }
- 
- #stage{ font-family:FontAwesome; }
-
-canvas {
-  cursor: move;
-  display: block;
-  position: absolute;
-  max-width: 100%;
-  left: 0;
-  top: 0;
-}
-
-.is-cub-hovered,
-.is-cub-hovered canvas {
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-.is-cub-dragging,
-.is-cub-dragging canvas {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
-
-/* --- instructions --- */
-
-.instructions-list {
-  position: absolute;
-  /*background: #EEE;*/
-  background-color: #bdc3c7;
-  width: 100%;
-  min-height: 100%;
-  left: 0;
-  top: 0;
-  margin: 0;
-  list-style: none;
+header {
+  color: #2c3e50;
+  font-size: 2em;
+  font-family: 'Fredoka One';
   padding: 10px;
-  z-index: 3; /* above canvas, level select button */
-  left: -100%;
-  transition: left 0.2s;
   text-align: center;
-  font-family: 'Lato';
 }
 
-.instructions-list li {
-  margin-bottom: 20px;
+header span {
+  color: #e74c3c;
 }
 
-.instructions-list.is-open {
-  left: 0;
-}
 
-.close-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/*.instruction {
-  padding: 0 10px;
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  padding-bottom: 40px;
-}*/
-
-.button {
-  font-family: 'Avenir Next', Avenir, sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  padding: 5px 15px;
-  margin: 10px;
-  background: #BBB;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: #09F;
-}
+/* ---- menu button bar ---- */
 
 .top-bar {
-/*  position: absolute;
-  left: 0;
-  top: 0;*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
   justify-content: center;
+  width: 100%;
 }
 
 .top-bar .button, .top-bar iframe {
-  position: relative;
   z-index: 2;
 }
 
-/* social media buttons */
 .top-bar iframe {
   margin: 10px 20px;
   transform: scale(1.5);
@@ -155,44 +69,37 @@ canvas {
   -webkit-transform-origin: top left;
 }
 
-.level-select-button {
+.button {
+  font-weight: 500;
+  font-size: 1em;
+  padding: 5px 15px;
+  margin: 10px;
+  background: #3498db;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #2980b9;
+}
+
+.donate-button {
+  text-decoration: none;
+}
+
+
+/* ---- list overlays ---- */
+
+.list-wrapper {
   position: relative;
-  z-index: 2; /* above canvas */
 }
 
-.next-level-button {
+.instructions-list, .level-list {
   position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-110px) scale(0.5);
-  transform: translateX(-110px) scale(0.5);
-  opacity: 0;
-  background: #09F;
-  width: 200px;
-  height: 80px;
-  pointer-events: none;
-  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.next-level-button:hover {
-  background: #2BF;
-}
-
-.next-level-button.is-open {
-  display: inline-block;
-  pointer-events: auto;
-  -webkit-transform: translateX(-110px) scale(1);
-  transform: translate(-110px) scale(1);
-  opacity: 1;
-}
-
-/* ---- level list ---- */
-
-.level-list {
-  position: absolute;
-  background: #EEE;
+  background-color: #bdc3c7;
   width: 100%;
-  min-height: 100%;
   left: 0;
   top: 0;
   margin: 0;
@@ -201,32 +108,39 @@ canvas {
   z-index: 3; /* above canvas, level select button */
   left: -100%;
   transition: left 0.2s;
+  text-align: center;
+  font-family: 'Lato';
 }
 
-.level-list.is-open {
+.instructions-list.is-open, .level-list.is-open {
   left: 0;
 }
+
+.instructions-list li {
+  margin-bottom: 20px;
+}
+
 
 .level-list__item {
   display: inline-block;
   background: #DDD;
   margin: 5px;
   padding: 10px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   border-radius: 10px;
   position: relative;
 }
 
 .level-list__item:hover {
-  color: #09F;
+  color: #3498db;
   cursor: pointer;
   background: white;
 }
 
 .level-list__item.is-playing {
-  background: #09F;
+  background: #3498db;
   color: white;
 }
 
@@ -237,8 +151,8 @@ canvas {
 }
 
 .level-list__item__blurb {
-  display: block;
-  font-size: 16px;
+  display: none;
+  /*font-size: 16px;*/
 }
 
 .level-list__item__check {
@@ -256,6 +170,67 @@ canvas {
 .level-list__item.did-complete .level-list__item__check {
   display: block;
 }
+
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+/* ---- canvas ---- */
+
+canvas {
+  font-family: 'FontAwesome';
+  cursor: move;
+  display: block;
+  max-width: 100%;
+}
+
+.is-cub-hovered,
+.is-cub-hovered canvas {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.is-cub-dragging,
+.is-cub-dragging canvas {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+
+/* ---- next level button ---- */
+
+.next-level-button {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-110px) scale(0.5);
+  transform: translateX(-110px) scale(0.5);
+  opacity: 0;
+  background: #3498db;
+  width: 200px;
+  height: 80px;
+  pointer-events: none;
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.next-level-button:hover {
+  background: #2980b9;
+}
+
+.next-level-button.is-open {
+  display: inline-block;
+  pointer-events: auto;
+  -webkit-transform: translateX(-110px) scale(1);
+  transform: translate(-110px) scale(1);
+  opacity: 1;
+}
+
+
 
 /* ---- level pres ---- */
 

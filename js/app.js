@@ -1,4 +1,3 @@
-window.onload = function() {
 /**
  * EvEmitter v1.0.2
  * Lil' event emitter
@@ -1286,7 +1285,7 @@ hatSmallImg.src = './img/trump-hat-s.png';
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
 var canvasWidth = canvas.width = window.innerWidth * 2;
-var canvasHeight = canvas.height = window.innerHeight * 2 - 200; // DTG: added - 200 to account for top banner of 100px
+var canvasHeight = canvas.height = window.innerHeight * 2 - (2 * canvas.offsetTop); // DTG: added - 2* canvasTop to account for top bar and header
 var maze;
 var PI = Math.PI;
 var TAU = PI * 2;
@@ -1352,8 +1351,6 @@ instructionsButton.addEventListener( 'click', function() {
   instructionsList.classList.add('is-open');
 });
 
-// nextLevelButton.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
-
 // ----- close menu button ---- //
 var closeButton = document.querySelectorAll('.close-button');
 for (var i = 0; i < closeButton.length; i++) {
@@ -1373,7 +1370,7 @@ levelSelectButton.addEventListener( 'click', function() {
   levelList.classList.add('is-open');
 });
 
-nextLevelButton.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
+nextLevelButton.style.top = ( canvas.offsetTop ) + 'px'; // DTG: changed for new position for mobile below top bar
 
 // ----- level list ----- //
 
@@ -1437,7 +1434,7 @@ animate();
 // -------------------------- drag rotation -------------------------- //
 
 var canvasLeft = canvas.offsetLeft;
-var canvasTop = canvas.offsetTop + 100; //DTG: added 100px offset from top for header
+var canvasTop = canvas.offsetTop;
 
 var pointerBehavior;
 
@@ -1819,6 +1816,4 @@ nextLevelButton.addEventListener( 'click', function() {
 
 function normalizeAngle( angle ) {
   return ( ( angle % TAU ) + TAU ) % TAU;
-}
-
 }

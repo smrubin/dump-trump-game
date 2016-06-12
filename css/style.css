@@ -1,19 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One|Lato);
+
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'Avenir Next', Avenir, sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 500;
   font-size: 20px;
   color: #555;
+  background-color: #ecf0f1; /* porcelain on flatui */
 }
 
 header {
   text-align: center;
   height: 100px;
-  font-size: 3vw;
+  font-size: 42px;
+  font-family: 'Fredoka One';
+}
+
+@media only screen and (max-width : 768px) {
+  header {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+  header {
+    font-size: 24px;
+  }
 }
 
 main {
@@ -54,7 +70,8 @@ canvas {
 
 .instructions-list {
   position: absolute;
-  background: #EEE;
+  /*background: #EEE;*/
+  background-color: #bdc3c7;
   width: 100%;
   min-height: 100%;
   left: 0;
@@ -65,6 +82,12 @@ canvas {
   z-index: 3; /* above canvas, level select button */
   left: -100%;
   transition: left 0.2s;
+  text-align: center;
+  font-family: 'Lato';
+}
+
+.instructions-list li {
+  margin-bottom: 20px;
 }
 
 .instructions-list.is-open {

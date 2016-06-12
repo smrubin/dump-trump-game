@@ -1,3 +1,4 @@
+window.onload = function() {
 /**
  * EvEmitter v1.0.2
  * Lil' event emitter
@@ -472,7 +473,8 @@ proto.render = function( ctx, center, gridSize ) {
   var ay = this.a.y * gridSize;
   var bx = this.b.x * gridSize;
   var by = this.b.y * gridSize;
-  ctx.strokeStyle = 'hsla(30, 100%, 40%, 0.6)';
+  // ctx.strokeStyle = 'hsla(30, 100%, 40%, 0.6)';
+  ctx.strokeStyle = 'hsla(282, 80%, 63%, 0.6)'; // DTG: added for purple
   ctx.lineWidth = gridSize * 0.8;
   ctx.lineCap = 'round';
   ctx.beginPath();
@@ -1177,7 +1179,7 @@ function renderGoal( ctx, x, y, mazeAngle, radiusA, radiusB ) {
   var dx = Math.cos( theta ) * radius - 20;
   var dy = Math.sin( theta ) * radius;
   
-  ctx.fillStyle = "#ABB7B7"; 
+  ctx.fillStyle = "#6c7a89"; // lynch on flatui 
   ctx.font = '55px FontAwesome';  
   ctx.fillText("\uf1f8", dx, dy);// trash Icon at position x and y
 
@@ -1241,7 +1243,8 @@ proto.renderBurst = function( ctx ) {
     ctx.translate( 0, dy );
     ctx.scale( scale, scale );
     ctx.rotate( spin );
-    renderStar( ctx );
+    // renderStar( ctx );
+    ctx.drawImage(hatLargeImg, 0, 0);
     ctx.restore();
   }
 };
@@ -1274,6 +1277,11 @@ var ctx = canvas.getContext('2d');
 // Create Trump image: DTG
 var img = new Image();
 img.src = './img/trump-cartoon.png';
+
+var hatLargeImg = new Image();
+hatLargeImg.src = './img/trump-hat-l.png';
+var hatSmallImg = new Image();
+hatSmallImg.src = './img/trump-hat-s.png';
 
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
@@ -1811,4 +1819,6 @@ nextLevelButton.addEventListener( 'click', function() {
 
 function normalizeAngle( angle ) {
   return ( ( angle % TAU ) + TAU ) % TAU;
+}
+
 }

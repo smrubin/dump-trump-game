@@ -1316,9 +1316,10 @@ var mazeCenter = {
 
 // ----- instruction ----- //
 
-// var instructElem = document.querySelector('.instruction');
-// instructElem.style.top = ( mazeCenter.y + gridSize * 5.5 ) + 'px';
 var instructionsList = document.querySelector('.instructions-list');
+instructionsList.addEventListener( 'click', function(e) {
+  e.stopPropagation();;
+});
 
 // ----- build level select, levels array ----- //
 
@@ -1344,6 +1345,9 @@ var levels = [];
   }
 
   levelList.appendChild( fragment );
+  levelList.addEventListener( 'click', function(e) {
+    e.stopPropagation();;
+  });
 
   // Added close button for DTG
   var closeButtonElement = document.createElement('i');
@@ -1356,7 +1360,8 @@ var levels = [];
 
 var instructionsButton = document.querySelector('.instructions-button');
 
-instructionsButton.addEventListener( 'click', function() {
+instructionsButton.addEventListener( 'click', function(e) {
+  e.stopPropagation();
   instructionsList.classList.add('is-open');
   levelList.classList.remove('is-open');
 });
@@ -1369,6 +1374,16 @@ for (var i = 0; i < closeButton.length; i++) {
   });
 }
 
+// DTG added for off click of menu overlay
+document.addEventListener('click', function() {
+  if( instructionsList.classList.contains('is-open') ) {
+    instructionsList.classList.remove('is-open'); 
+  }
+  else if ( levelList.classList.contains('is-open') ) {
+    levelList.classList.remove('is-open');
+  }
+});
+
 
 
 // ----- levels button ----- //
@@ -1376,7 +1391,8 @@ for (var i = 0; i < closeButton.length; i++) {
 var levelSelectButton = document.querySelector('.level-select-button');
 var nextLevelButton = document.querySelector('.next-level-button');
 
-levelSelectButton.addEventListener( 'click', function() {
+levelSelectButton.addEventListener( 'click', function(e) {
+  e.stopPropagation();
   levelList.classList.add('is-open');
   instructionsList.classList.remove('is-open');
 });

@@ -1185,12 +1185,10 @@ function renderGoal( ctx, x, y, mazeAngle, radiusA, radiusB ) {
 
   var theta =  Math.PI/2;
   var radius = radiusB;
-  var dx = Math.cos( theta ) * radius - 20;
-  var dy = Math.sin( theta ) * radius;
-  
-  ctx.fillStyle = "#6c7a89"; // lynch on flatui 
-  ctx.font = '55px FontAwesome';  
-  ctx.fillText("\uf1f8", dx, dy);// trash Icon at position x and y
+  var dx = Math.cos( theta ) * radius - 25;
+  var dy = Math.sin( theta ) * radius - 40;
+
+  ctx.drawImage(dumpImg, dx, dy);
 
   ctx.restore();
 }
@@ -1204,7 +1202,7 @@ function WinAnimation( x, y ) {
 }
 
 // length of animation in milliseconds
-var duration = 1000;
+var duration = 1500;
 
 var proto = WinAnimation.prototype;
 
@@ -1291,6 +1289,8 @@ var hatLargeImg = new Image();
 hatLargeImg.src = './img/trump-hat-l.png';
 var hatSmallImg = new Image();
 hatSmallImg.src = './img/trump-hat-s.png';
+var dumpImg = new Image();
+dumpImg.src = './img/dump.png';
 
 // size canvas;
 var canvasSize = Math.min( window.innerWidth, window.innerHeight );
@@ -1355,10 +1355,10 @@ var levels = [];
 // ----- DTG: instructions button ----- //
 
 var instructionsButton = document.querySelector('.instructions-button');
-// var nextLevelButton = document.querySelector('.next-level-button');
 
 instructionsButton.addEventListener( 'click', function() {
   instructionsList.classList.add('is-open');
+  levelList.classList.remove('is-open');
 });
 
 // ----- close menu button ---- //
@@ -1378,6 +1378,7 @@ var nextLevelButton = document.querySelector('.next-level-button');
 
 levelSelectButton.addEventListener( 'click', function() {
   levelList.classList.add('is-open');
+  instructionsList.classList.remove('is-open');
 });
 
 nextLevelButton.style.top = ( canvas.offsetTop ) + 'px'; // DTG: changed for new position for mobile below top bar

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title>The Dump Trump Game</title>
+    <link rel="stylesheet" href="css/style.min.css">
+
+    <!-- Regular Meta Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"             content="width=device-width, initial-scale=1">
+    <meta name="description"          content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!">
+    <meta name="keywords"             content="trump, dump, game, dump trump, puzzle, trump game, drag">
+
+    <!-- Facebook  -->
+    <meta property="og:url"           content="http://dumptrumpgame.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="The Dump Trump Game" />
+    <meta property="og:description"   content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!" />
+    <meta property="og:image"         content="http://dumptrumpgame.com/img/dumptrumpgamesnapshot.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card"         content="The Dump Trump Game">
+    <meta name="twitter:site"         content="http://dumptrumpgame.com">
+    <meta name="twitter:title"        content="Check out this Dump Trump Game!">
+    <meta name="twitter:description"  content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!">
+    <meta name="twitter:image"        content="http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg">
+    
+  </head>
+
+  <body>
+
+    <header>The <span>Dump Trump</span> Game</header>
+        
+    <div class="top-bar">
+      <button class="button level-select-button">Levels</button>
+      <button class="button instructions-button">About</button>
+
+      <!--  Facebook share button -->
+      <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdumptrumpgame.com&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+      <!-- Twitter share button -->
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dumptrumpgame.com" data-hashtags="dumptrumpgame">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    </div>
+
+    <div class="list-wrapper">
+
+      <ul class="instructions-list">
+        <i class="fa fa-times close-button" aria-hidden="true"></i>
+        <li>Drag Trump to the Dump!</li>
+        <li>Drag the grid to rotate. Trump and the Dump both move with the grid. Purple links stay in place.</li>
+        <li>Blue links move with the grid. Rotate the grid to connect blue and orange links in different ways.</li>
+        <li>Green links pivot with the grid, but point in the same direction.</li>
+        <li>Red links are fixed in place, but rotate with the grid.</li>
+        <li class="disclaimer">DISCLAIMER: Reference to any celebrity, artist, musician, person, product, name, trademark, service mark, or company name is for descriptive purposes only and does not constitute or imply sponsorship, endorsement, or recommendation unless explicitly state herein.</li>
+        <li>For humor purposes only. Not to be taken seriously.</li>
+      </ul>
+
+      <ol class="level-list"></ol>
+
+    </div>
+
+    <canvas></canvas>
+
+    <button class="button next-level-button">Next level</button>
+
+<div class="levels">
+
+<pre id="intro-fixed1" data-blurb="Tutorial">
+blurb: Tutorial
+---
+*=.=.
+    !
+. . .
+    !
+@=.=.
+</pre>
+
+<pre id="intro-fixed2" data-blurb="Tutorial">
+blurb: Tutorial
+---
+* . .
+    !
+. . .
+    !
+@=.=.
+</pre>
+
+<pre id="intro-fixed3" data-blurb="★">
+blurb: ★
+---
+@=. .
+
+. . .
+    !
+*=. .
+</pre>
+
+<pre id="intro-free1" data-blurb="Tutorial">
+blurb: Tutorial
+---
+@-. .
+!   | 
+. . .
+    |
+*-.-.
+</pre>
+
+<pre id="m3x3-2-med" data-blurb="★">
+blurb: ★
+---
+. . *
+| | | 
+. . .
+| | | 
+@ .=.
+</pre>
+
+<pre id="m3x3-fixed-switch" data-blurb="★">
+blurb: ★
+---
+*=.-.
+ 
+. . .
+    | 
+@-. .
+</pre>
+
+<pre id="m4x4-2" data-blurb="★">
+blurb: ★
+---
+. .=. .
+  | !  
+. . .-*
+  |    
+. . . .
+       
+. @-. .
+</pre>
+
+<pre id="m4x4-1" data-blurb="★">
+blurb: ★
+---
+. . . .
+       
+* . . @
+  | ! |
+. . . .
+  !    
+. . . .
+</pre>
+
+<pre id="m4x4-3" data-blurb="★">
+blurb: ★
+---
+. @ . .
+! |    
+. . . .
+      |
+.=.=.-.
+|       
+. * . .
+</pre>
+
+<pre id="m4x4-4" data-blurb="★">
+blurb: ★
+---
+. . . .
+       
+* . . .
+    !  
+. . .-.
+!      
+.=.=. @
+</pre>
+
+<pre id="m4x4-5" data-blurb="★">
+blurb: ★
+---
+.-.-.-.
+|       
+@ .-.-.
+       
+* .=. .
+!   |   
+.-.-. .
+</pre>
+
+<pre id="m4x4-6-med" data-blurb="★">
+blurb: ★
+---
+. * . .
+
+.-.=. .
+  |
+. . . .
+!   |
+.=. @ .
+</pre>
+
+<pre id="m4x4-7-hard1" data-blurb="★★">
+blurb: ★★
+---
+. . *-.
+       
+.-.=. .
+      |
+.=. . .
+  | |  
+@-.-.=.
+</pre>
+
+<pre id="m4x4-8-hard2" data-blurb="★★">
+blurb: ★★
+---
+.-@ .=.
+       
+. . . .
+    |  
+.-. .-*
+  |    
+. .=.-.
+</pre>
+
+<pre id="m4x4-9-hard1" data-blurb="★★">
+blurb: ★★
+---
+. . .=.
+  !    
+@-. .-.
+     
+. .=. .
+       
+. . * .
+</pre>
+
+<pre id="m4x4-10-hard1" data-blurb="★★">
+blurb: ★★
+---
+. @=. .
+  |   
+. .-.-.
+       
+.-.-.-.
+!     ! 
+. * . .
+</pre>
+
+<pre id="m5x5-3" data-blurb="★">
+. . . . .
+  | !   
+. . .-. .
+  |     
+. . . . *
+  |     
+. . .=. .
+  |     
+. @ . . .
+</pre>
+
+<pre id="m5x5-1" data-blurb="★">
+@-.-. .-.
+    |    
+. . . . .
+         
+. . .=. .
+         
+. . . .=.
+    |    
+. .=.-* .
+</pre>
+
+<pre id="m5x5-2" data-blurb="★★">
+. . . . .
+        
+. .=.-. @
+|       !
+. . . .-.
+        
+.=. . .=.
+!       
+* . . . .
+</pre>
+
+<pre id="m5x5-4" data-blurb="★★">
+. . . .-.
+      ! 
+. .-. . .
+  !     |
+.=. . . .
+|        
+. . . . *
+|        
+.-@=. .=.
+</pre>
+
+<pre id="m5x5-5" data-blurb="★★">
+. . . . .
+
+. . .-. *
+    !
+. . .-. .
+
+.=. . . .
+    |
+. @-. . .
+</pre>
+
+<pre id="m5x5-6" data-blurb="★★">
+. . .-.-.
+!   !    
+. .=.-. .
+|   
+. .-. .-@
+!
+* .=. . .
+      |
+.=. .-.=.
+</pre>
+
+<pre id="m5x5-7" data-blurb="★★★">
+.=* . @=.
+|
+. .=. . .
+|   | |
+.=. . .-.
+        |
+. . . .=.
+!    
+. .-.-. .
+</pre>
+
+<pre id="m5x5-8" data-blurb="★★★">
+. * . .-.
+  |     
+. . .=.-.
+!       | 
+. . . . .
+        
+. .-. .=.
+        |
+. . .=.-@
+</pre>
+
+<pre id="m5x5-9" data-blurb="★★★">
+.-.-. . .
+    |    
+. . . .-@
+  !      
+* . .-. .
+|   !    
+.-. . .=.
+    |   !
+. . .=. .
+</pre>
+
+<pre id="m5x5-10" data-blurb="★★">
+. . . . .
+         
+. . . .-@
+  !      
+* . .=. .
+|   !    
+.-. . . .
+         
+. . . . .
+</pre>
+
+<pre id="m5x5-11" data-blurb="★★★">
+. . . .=.
+  |     
+. . . .=.
+|        
+. . .-. .
+! |     
+. .=. . .
+|   !   !
+.-@ . * .
+</pre>
+
+<pre id="m5x5-12" data-blurb="★★">
+. . .=.=.
+        
+. . . . .
+        
+. . . . @
+        
+. . . . .
+        
+* . .=.=.
+</pre>
+
+<pre id="m6x6-1-hard1" data-blurb="★★★">
+. . * . . .
+  ! | |  
+. .-. .-. .
+          |
+. . . . .-.
+      | ! |
+. . .=. . .
+    |
+@-.-. .-. .
+          |
+. .=. . .-.
+</pre>
+
+<pre id="m6x6-2" data-blurb="★★★">
+@ .=. . .=.
+  | | !
+. . . .=. .
+  |     |
+. . . .-. .
+|   !
+. . . . . *
+|     |
+.=. .-. . .
+  |   | |
+.-. . . .=.
+</pre>
+
+<pre id="m6x6-3" data-blurb="★★★">
+.=. .=.-.-*
+  |        
+.-. . . . .
+        | !
+. . .-.-. .
+!          
+.-. .=.=. .
+           
+@ .=. . . .
+  |     !
+. .-. .-. .
+</pre>
+
+<pre id="pivot-4x4-intro" data-blurb="Tutorial">
+---
+. .-* .
+  |    
+. . . .
+       
+. .>. .
+       
+. @ . .
+</pre>
+
+<pre id="pivot-5x5-2" data-blurb="★★">
+. . .-.-@
+        
+. .<. . .
+        
+.>. . . .
+| !      
+.-.-. . *
+  !     
+. . . . .
+</pre>
+
+<pre id="pivot-5x5-swirly" data-blurb="★★★">
+. . . . .
+      ^ 
+.<. . . *
+        
+. . . . .
+        
+@ . . .>.
+  v     
+. . . . .
+</pre>
+
+<pre id="pivot-5x5-1" data-blurb="★★★">
+. .-. . .
+      ^ 
+. .<.=.=.
+        
+.>. . .-@
+        
+* . . .=.
+        
+. . . . .
+</pre>
+
+<pre id="pivot-5x5-3" data-blurb="★★">
+.=. . .-*
+    v   
+. . . . .
+         
+. . .-.J.
+         
+@-. . . .
+    v   
+.<. . . .
+</pre>
+
+<pre id="pivot-5x5-4" data-blurb="★★★">
+.-.-. @>.
+!     ^ 
+. . . . .
+  |      
+. . . . .
+  |     
+. . . .=*
+    ^    
+. . .-. .>
+</pre>
+
+<pre id="pivot-5x5-5" data-blurb="★★★">
+.-. . . *
+        
+. .>. . .
+|       v
+.-. . . .
+  ^      
+. . .-. .
+      v 
+@=.=. . .
+</pre>
+
+<pre id="pivot-5x5-6" data-blurb="★★★">
+. . .>. .
+  ! |    
+@=. .-. .
+        
+. . . .=.>
+         
+. . . . .
+         
+. *>.<. .
+</pre>
+
+<pre id="pivot-5x5-7" data-blurb="★★★">
+* . @ . .
+v   |   
+. . . . .
+      !  
+. . . . .
+^     ! !
+. .-. . .
+  !     
+. . . . .
+    v
+</pre>
+
+<pre id="pivot-6x6-1" data-blurb="★★★">
+. . . . . .
+| v         
+@ . . . . *
+  | |      
+. . . . . .
+| !   ^ | K
+. . . .-.=.
+|          
+. .-. . . .
+v          
+.>. . . . .
+</pre>
+
+<pre id="pivot-6x6-3" data-blurb="★★★">
+. @-. .>.-.
+          
+. . . . . .
+          |
+* .>. .=. .
+    !      
+. . . . . .>
+      |   ^
+. . . .=. .
+           
+. .=. . .=.>
+</pre>
+
+<pre id="pivot-6x6-2" data-blurb="★★★">
+. .-.-. .=.
+      v   
+. . . . . .
+  |     ! v
+.>. . . . *
+    ^      
+. . . . . .
+|          
+. .-.<. . .
+! |       |
+. . . .>.-@
+</pre>
+
+<pre id="m44" data-blurb="★★">
+. .=. *-.
+        
+. . .=. .
+!        
+. . . . .
+  |   ! 
+. . . . .
+  |     |
+. @ . .=.
+</pre>
+
+<pre id="m45" data-blurb="★★">
+@ * .>. .
+        
+. .=.=. .
+|     | 
+.>. . . .
+        
+. . . .>.
+|       
+.=. . .-.
+</pre>
+
+<pre id="m46" data-blurb="★★★">
+.-. . .
+    ^ 
+. . . .
+       
+.L. . .
+      !
+@ . .-*
+</pre>
+
+<pre id="m47" data-blurb="★★">
+@ . . . . .
+v v v v v v
+. . . . . .
+ 
+. . . . . .
+           
+. . . . . .
+  v v v v v
+. . . . . .
+           
+. . . .=. *
+v v v v   v
+</pre>
+
+<pre id="m48" data-blurb="★">
+.-.<.>.=. .
+W !       |
+. . .A. . *
+    |   |  
+. .=. . . .
+^ !        
+. .D.-.=.=@
+          | 
+. . .-.-. .
+|          
+.#.=. .<. .
+    v     v
+</pre>
+
+<pre id="m49" data-blurb="★★★">
+. . .-@ .
+    |   
+. . . .J.
+        
+* . . . .
+| !     !
+. . . . .
+    v   !
+. . . .-.
+</pre>
+
+<pre id="m50" data-blurb="★★★">
+*=. . .
+    v  
+. . . .
+^     |
+. . . .
+  ^   |
+@ .>. .
+</pre>
+
+<pre id="rotate-tut" data-blurb="Tutorial">
+---
+. . . .
+       
+@ .4. .
+  |    
+. . .-*
+       
+. . . .
+</pre>
+
+<pre id="rotate1" data-blurb="★">
+. . .-*
+    |  
+. . . .
+    5  
+.4. . .
+|      
+@ . . .
+</pre>
+
+<pre id="rotate2" data-blurb="★★">
+@ .-.=.
+    |  
+. . .4.
+    |  
+* . . .
+|   |  
+. . . . 
+</pre>
+
+<pre id="rotate3" data-blurb="★★">
+. . * .
+! 5 v  
+. . . @
+  |    
+. .4. .
+  !    
+. . . .
+</pre>
+
+<pre id="rotate3b" data-blurb="★★">
+* . . .
+! 5    
+. . . @
+  |    
+. .4. .
+  !    
+. . . .
+</pre>
+
+<pre id="rotate-5x5-1" data-blurb="★★">
+. . . .-@
+      8 
+. .=. . .
+        
+*=. . . .
+        
+. .-. . .
+        
+. . . . .
+</pre>
+
+<pre id="rotate-5x5-2" data-blurb="★★">
+. . . . .
+        
+. . . .6*
+  |     
+. . . .=.
+  |     
+.4. . . .
+        |
+. . . .-@
+</pre>
+
+<pre id="rotate-5x5-2b" data-blurb="★★★">
+. . . . .
+  !   | 
+.-.-. . .
+  v   |
+. . .-. .
+        
+@ . . . .
+    5   
+. . .=* .
+</pre>
+
+<pre id="rotate-6x6-1" data-blurb="★★★">
+@4.=. . . .
+          
+. . . . . .
+      v 8 |
+.-.-. . . .
+!   !   ^   
+. . . . . .
+           
+. .>. . . .
+!          
+* . .4. . .
+</pre>
+
+<pre id="rotate-6x6-2" data-blurb="★★★">
+. . *<. . .
+          
+.=. .-. . .
+        5
+. . . .-. .
+        |   
+. . . . . .
+           
+. . . . . .
+    5     | 
+. .=. . @-.
+</pre>
+
+<pre id="rotate-6x6-3" data-blurb="★★★">
+.4. . . . @
+!          
+.-. . .=. .
+! 
+. . . . . .
+!           
+.>.6. . . .
+!          
+. . . .=.-.
+      ^    
+. . . . * .
+</pre>
+
+
+</div>
+    
+<script src="js/app.min.js"></script>
+
+  </body>
+</html>

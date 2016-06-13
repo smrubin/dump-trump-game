@@ -126,7 +126,13 @@ header span {
 }
 
 .instructions-list li {
+  margin: 0 auto;
   margin-bottom: 20px;
+  max-width: 480px;
+}
+
+.instructions-list li.disclaimer {
+  border-top: 1px solid #333;
 }
 
 
@@ -192,7 +198,6 @@ header span {
 /* ---- canvas ---- */
 
 canvas {
-  font-family: 'FontAwesome';
   cursor: move;
   display: block;
   max-width: 100%;

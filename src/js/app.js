@@ -1353,8 +1353,8 @@ var levels = [];
   });
 
   // Added close button for DTG
-  var closeButtonElement = document.createElement('i');
-  closeButtonElement.className = 'fa fa-times close-button';
+  var closeButtonElement = document.createElement('span');
+  closeButtonElement.className = 'close-button';
   levelList.appendChild( closeButtonElement );
 
 })();

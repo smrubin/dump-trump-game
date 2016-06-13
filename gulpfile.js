@@ -42,12 +42,6 @@ gulp.task('images', function() {
     .pipe(gulp.dest(dest + 'img'));
 });
 
-// Copy over fonts
-gulp.task('fonts', function() {
-  return gulp.src(src + 'fonts/**/*')
-    .pipe(gulp.dest(dest + 'fonts'));
-});
-
 // Copy any configs to build
 gulp.task('configs', function() {
   return gulp.src('.htaccess')
@@ -61,9 +55,8 @@ gulp.task('watch', function() {
   gulp.watch(src + 'js/*.js', ['scripts']);
   gulp.watch(src + 'css/*.css', ['css']);
   gulp.watch(src + 'images/**/*', ['images']);
-  gulp.watch(src + 'fonts/**/*', ['fonts']);
   gulp.watch('.htaccess', ['configs']);
 });
 
 // Default Gulp Task
-gulp.task('default', ['html', 'scripts', 'css', 'images', 'fonts', 'configs', 'watch']);
+gulp.task('default', ['html', 'scripts', 'css', 'images', 'configs', 'watch']);

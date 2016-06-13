@@ -5,7 +5,6 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -121,8 +120,15 @@ header span {
   font-family: 'Lato';
 }
 
+@media only screen and (max-width : 480px) {
+  .instructions-list, .level-list {
+    display: none;
+  }
+}
+
 .instructions-list.is-open, .level-list.is-open {
   left: 0;
+  display: block;
 }
 
 .instructions-list li {
@@ -134,7 +140,6 @@ header span {
 .instructions-list li.disclaimer {
   border-top: 1px solid #333;
 }
-
 
 .level-list__item {
   display: inline-block;
@@ -176,7 +181,7 @@ header span {
   top: -10px;
   width: 30px;
   line-height: 30px;
-  background: #555;
+  background: #e74c3c;
   border-radius: 15px;
   color: white;
   display: none;
@@ -192,6 +197,13 @@ header span {
   top: 0;
   padding: 10px;
   cursor: pointer;
+}
+
+@media only screen and (max-width : 480px) {
+  .close-button {
+    font-size: 1.8em;
+    top: -40px;
+  }
 }
 
 

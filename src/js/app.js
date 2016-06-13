@@ -453,7 +453,8 @@ proto.render = function( ctx, center, gridSize ) {
   var ay = this.a.y * gridSize;
   var bx = this.b.x * gridSize;
   var by = this.b.y * gridSize;
-  ctx.strokeStyle = 'hsla(200, 80%, 50%, 0.7)';
+  // ctx.strokeStyle = 'hsla(200, 80%, 50%, 0.7)';
+  ctx.strokeStyle = 'hsla(204, 70%, 53%, 0.7)'; // DTG: lighter blue
   ctx.lineWidth = gridSize * 0.6;
   ctx.lineCap = 'round';
   ctx.beginPath();
@@ -483,7 +484,8 @@ proto.render = function( ctx, center, gridSize ) {
   var bx = this.b.x * gridSize;
   var by = this.b.y * gridSize;
   // ctx.strokeStyle = 'hsla(30, 100%, 40%, 0.6)';
-  ctx.strokeStyle = 'hsla(282, 80%, 63%, 0.6)'; // DTG: added for purple
+  // ctx.strokeStyle = 'hsla(282, 80%, 63%, 0.6)'; // DTG: added for purple
+  ctx.strokeStyle = 'hsla(210, 29%, 24%, 0.6)'; // DTG: dark blue
   ctx.lineWidth = gridSize * 0.8;
   ctx.lineCap = 'round';
   ctx.beginPath();
@@ -531,7 +533,7 @@ proto.render = function( ctx, center, gridSize, mazeAngle ) {
 
   ctx.translate( ax, ay );
   ctx.rotate( -mazeAngle );
-  var color = 'hsla(150, 100%, 35%, 0.7)'
+  var color = 'hsla(150, 100%, 35%, 0.7)' // green
   // line
   ctx.strokeStyle = color;
   ctx.lineWidth = gridSize * 0.4;
@@ -583,7 +585,8 @@ proto.render = function( ctx, center, gridSize, mazeAngle ) {
   ctx.save();
   ctx.translate( ax, ay );
   ctx.rotate( mazeAngle );
-  var color = 'hsla(0, 100%, 50%, 0.6)';
+  // var color = 'hsla(0, 100%, 50%, 0.6)';
+  var color = 'hsla(6, 78%, 57%, 0.6)';
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
   // axle
@@ -1450,6 +1453,20 @@ function loadLevel( id ) {
 }
 
 // ----- init ----- //
+
+// Safari, in Private Browsing Mode, looks like it supports localStorage but all calls to setItem
+// throw QuotaExceededError. We're going to detect this and just silently drop any calls to setItem
+// to avoid the entire page breaking, without having to do a check at each usage of Storage.
+if (typeof localStorage === 'object') {
+    try {
+        localStorage.setItem('localStorage', 1);
+        localStorage.removeItem('localStorage');
+    } catch (e) {
+        Storage.prototype._setItem = Storage.prototype.setItem;
+        Storage.prototype.setItem = function() {};
+        alert('Your web browser does not support storing settings locally. In Safari, the most common cause of this is using "Private Browsing Mode". Some settings may not save or some features may not work properly for you.');
+    }
+}
 
 var initialLevel = localStorage.getItem('currentLevel') || levels[0];
 loadLevel( initialLevel );

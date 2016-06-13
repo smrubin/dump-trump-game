@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -19,6 +19,12 @@ body {
   }
 }
 
+@media only screen and (max-width : 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 @media only screen and (max-width : 320px) {
   body {
     font-size: 12px;
@@ -27,7 +33,7 @@ body {
 
 header {
   color: #2c3e50;
-  font-size: 2em;
+  font-size: 1.8em;
   font-family: 'Fredoka One';
   padding: 10px;
   text-align: center;
@@ -56,6 +62,7 @@ header span {
 }
 
 .top-bar iframe {
+  display: inline-block;
   margin: 10px 20px;
   transform: scale(1.5);
   -ms-transform: scale(1.5); 
@@ -67,6 +74,12 @@ header span {
   -webkit-transform-origin: top left;
   -moz-transform-origin: top left;
   -webkit-transform-origin: top left;
+}
+
+@media only screen and (max-width : 480px) {
+  .top-bar iframe {
+    display: none;
+  }
 }
 
 .button {

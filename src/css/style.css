@@ -193,18 +193,42 @@ header span {
 
 .close-button {
   position: absolute;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
   right: 0;
   top: 0;
-  padding: 10px;
   cursor: pointer;
+  margin: 10px;
+}
+.close-button::before, .close-button::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  border-radius: 5px;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #555;
+}
+
+.close-button::before {
+  transform: rotate(45deg);
+}
+.close-button::after {
+  transform: rotate(-45deg);
 }
 
 @media only screen and (max-width : 480px) {
   .close-button {
-    font-size: 1.8em;
     top: -40px;
   }
 }
+
 
 
 /* ---- canvas ---- */

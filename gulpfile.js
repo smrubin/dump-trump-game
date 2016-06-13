@@ -48,6 +48,12 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(dest + 'fonts'));
 });
 
+// Copy any configs to build
+gulp.task('configs', function() {
+  return gulp.src('.htaccess')
+    .pipe(gulp.dest(dest));
+});
+
 
 // Watch for changes in files
 gulp.task('watch', function() {
@@ -55,8 +61,9 @@ gulp.task('watch', function() {
   gulp.watch(src + 'js/*.js', ['scripts']);
   gulp.watch(src + 'css/*.css', ['css']);
   gulp.watch(src + 'images/**/*', ['images']);
-  gulp.watch(src + 'fonts/**/*', ['fonts'])
+  gulp.watch(src + 'fonts/**/*', ['fonts']);
+  gulp.watch('.htaccess', ['configs']);
 });
 
 // Default Gulp Task
-gulp.task('default', ['html', 'scripts', 'css', 'images', 'fonts', 'watch']);
+gulp.task('default', ['html', 'scripts', 'css', 'images', 'fonts', 'configs', 'watch']);

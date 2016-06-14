@@ -18,14 +18,21 @@
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="The Dump Trump Game" />
     <meta property="og:description"   content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!" />
-    <meta property="og:image"         content="http://dumptrumpgame.com/img/dumptrumpgamesnapshot.jpg" />
+    <meta property="og:image"         content="http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg" />
 
     <!-- Twitter -->
-    <meta name="twitter:card"         content="The Dump Trump Game">
-    <meta name="twitter:site"         content="http://dumptrumpgame.com">
-    <meta name="twitter:title"        content="Check out this Dump Trump Game!">
+    <meta name="twitter:card"         content="summary_large_image">
+    <meta name="twitter:site"         content="@Dump_Trump_Game">
+    <meta name="twitter:title"        content="The Dump Trump Game">
     <meta name="twitter:description"  content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!">
     <meta name="twitter:image"        content="http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg">
+    <meta name="twitter:creator"      content="@Dump_Trump_Game">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="url"              content="http://dumptrumpgame.com" />
+    <meta itemprop="name"             content="The Dump Trump Game">
+    <meta itemprop="description"      content="Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!">
+    <meta itemprop="image"            content="http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg">
     
   </head>
 
@@ -37,13 +44,6 @@
       <button class="button level-select-button">Levels</button>
       <button class="button instructions-button">About</button>
 
-      <!--  Facebook share button -->
-<!--       <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdumptrumpgame.com&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
-
-      <!-- Twitter share button -->
-<!--       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dumptrumpgame.com" data-hashtags="dumptrumpgame">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
-
       <share-button class="button"></share-button>
     
     </div>
@@ -51,7 +51,6 @@
     <div class="list-wrapper">
 
       <ul class="instructions-list">
-        <!-- <i class="fa fa-times close-button" aria-hidden="true"></i> -->
         <span class="close-button"></span>
         <li>Drag Trump to the Dump!</li>
         <li>Drag the grid to rotate. Move Trump up and down, side to side on the colored lines until he can be dragged to the dump.</li>
@@ -812,7 +811,7 @@ W !       |
       url: 'dumptrumpgame.com',
       title: 'The Dump Trump Game',
       description: 'Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!',
-      image: 'http://dumptrumpgame.com/img/dumptrumpgamesnapshot.jpg',
+      image: 'http://dumptrumpgame.com/img/dumptrumpgame-snapshot.jpg',
       ui: {
         flyout: 'bottom left'
       },
@@ -820,17 +819,34 @@ W !       |
         googlePlus: {
           enabled: false
         },
-        linkedin: {
-          enabled: false
+        twitter: {
+          url: 'http://dumptrumpgame.com',
+          description: 'Can you get Trump to the Dump? Test your puzzle skills by spinning & navigating the grid to drag Trump to the Dump!'
         },
-        email: {
+        reddit : {
+          title: 'Some guys made a challenging (but addictive) puzzle game that makes fun of Donald Trump'
+        },
+        linkedin: {
           enabled: false
         },
         whatsapp: {
           enabled: false
+        },
+        email: {
+          enabled: false
         }
       }
     });
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-79239570-1', 'auto');
+  ga('send', 'pageview');
   </script>
 
   </body>

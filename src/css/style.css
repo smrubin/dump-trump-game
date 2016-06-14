@@ -56,30 +56,16 @@ header span {
   width: 100%;
 }
 
-.top-bar .button, .top-bar iframe {
+.top-bar .button {
   z-index: 2;
 }
 
-.top-bar iframe {
+/*.top-bar iframe {
   display: inline-block;
   margin: 10px 20px;
   transform: scale(1.5);
-  -ms-transform: scale(1.5); 
-  -webkit-transform: scale(1.5); 
-  -o-transform: scale(1.5); 
-  -moz-transform: scale(1.5); 
   transform-origin: top left;
-  -ms-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-}
-
-@media only screen and (max-width : 480px) {
-  .top-bar iframe {
-    display: none;
-  }
-}
+}*/
 
 .button {
   font-weight: 500;
@@ -137,8 +123,12 @@ header span {
   max-width: 480px;
 }
 
-.instructions-list li.disclaimer {
+.instructions-list li.disclaimer{
   border-top: 1px solid #333;
+}
+
+.instructions-list li.disclaimer, .instructions-list li.disclaimer + li {
+  font-size: 0.8em;
 }
 
 .level-list__item {

@@ -533,7 +533,7 @@ proto.render = function( ctx, center, gridSize, mazeAngle ) {
 
   ctx.translate( ax, ay );
   ctx.rotate( -mazeAngle );
-  var color = 'hsla(150, 100%, 35%, 0.7)' // green
+  var color = 'hsla(6, 78%, 57%, 0.6)'; //Red
   // line
   ctx.strokeStyle = color;
   ctx.lineWidth = gridSize * 0.4;
@@ -586,7 +586,7 @@ proto.render = function( ctx, center, gridSize, mazeAngle ) {
   ctx.translate( ax, ay );
   ctx.rotate( mazeAngle );
   // var color = 'hsla(0, 100%, 50%, 0.6)';
-  var color = 'hsla(6, 78%, 57%, 0.6)';
+    var color = 'hsla(150, 100%, 35%, 0.7)'; //Green
   ctx.strokeStyle = color;
   ctx.fillStyle = color;
   // axle
@@ -1474,6 +1474,7 @@ loadLevel( initialLevel );
 unipointer.bindStartEvent( canvas );
 window.addEventListener( 'mousemove', onHoverMousemove );
 animate();
+
 
 // -------------------------- drag rotation -------------------------- //
 

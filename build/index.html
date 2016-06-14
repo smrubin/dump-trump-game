@@ -38,11 +38,13 @@
       <button class="button instructions-button">About</button>
 
       <!--  Facebook share button -->
-      <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdumptrumpgame.com&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+<!--       <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fdumptrumpgame.com&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
 
       <!-- Twitter share button -->
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dumptrumpgame.com" data-hashtags="dumptrumpgame">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dumptrumpgame.com" data-hashtags="dumptrumpgame">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+
+      <share-button class="button"></share-button>
     
     </div>
 
@@ -52,12 +54,13 @@
         <!-- <i class="fa fa-times close-button" aria-hidden="true"></i> -->
         <span class="close-button"></span>
         <li>Drag Trump to the Dump!</li>
-        <li>Drag the grid to rotate. Trump and the Dump both move with the grid. Gray links stay in place.</li>
+        <li>Drag the grid to rotate. Move Trump up and down, side to side on the colored lines until he can be dragged to the dump.</li>
+        <li>Gray links stay in place.</li>
         <li>Blue links move with the grid. Rotate the grid to connect blue and gray links in different ways.</li>
-        <li>Green links pivot with the grid, but point in the same direction.</li>
-        <li>Red links are fixed in place, but rotate with the grid.</li>
+        <li>Red links pivot with the grid, but point in the same direction.</li>
+        <li>Green links are fixed in place, but rotate with the grid.</li>
         <li class="disclaimer">DISCLAIMER: Reference to any celebrity, artist, musician, person, product, name, trademark, service mark, or company name is for descriptive purposes only and does not constitute or imply sponsorship, endorsement, or recommendation unless explicitly state herein.</li>
-        <li>For humor purposes only. Not to be taken seriously.</li>
+        <li>For humorous/entertainment purposes only. Not to be taken seriously.</li>
       </ul>
 
       <ol class="level-list"></ol>
@@ -804,6 +807,31 @@ W !       |
 
 </div>
 <script src="js/app.min.js"></script>
+  <script>
+    var shareButton = new ShareButton({
+      url: 'dumptrumpgame.com',
+      title: 'The Dump Trump Game',
+      description: 'Can you get Trump to the Dump? Test your puzzle skills by spinning and navigating the grid to drag Trump to the Dump!',
+      image: './img/dumptrumpgame-snapshot.jpg',
+      ui: {
+        flyout: 'bottom left'
+      },
+      networks: {
+        googlePlus: {
+          enabled: false
+        },
+        linkedin: {
+          enabled: false
+        },
+        email: {
+          enabled: false
+        },
+        whatsapp: {
+          enabled: false
+        }
+      }
+    });
+  </script>
 
   </body>
 </html>

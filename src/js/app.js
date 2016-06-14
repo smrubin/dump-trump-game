@@ -1475,6 +1475,7 @@ unipointer.bindStartEvent( canvas );
 window.addEventListener( 'mousemove', onHoverMousemove );
 animate();
 
+
 // -------------------------- drag rotation -------------------------- //
 
 var canvasLeft = canvas.offsetLeft;

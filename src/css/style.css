@@ -137,8 +137,12 @@ header span {
   max-width: 480px;
 }
 
-.instructions-list li.disclaimer {
+.instructions-list li.disclaimer{
   border-top: 1px solid #333;
+}
+
+.instructions-list li.disclaimer, .instructions-list li.disclaimer + li {
+  font-size: 0.8em;
 }
 
 .level-list__item {
